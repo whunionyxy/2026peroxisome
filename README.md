@@ -37,16 +37,31 @@ IJMS 投稿稿件配套的分析代码与数据（脓毒症 / 过氧化物酶体
 
 ## 大数据文件（未纳入 git）
 
-以下文件超过 GitHub 单文件 100 MB 硬性上限，或体积过大不宜入库，请从 **Releases** 页面下载 `数据代码.zip` 获取完整数据：
+以下文件超过 GitHub 单文件 100 MB 硬性上限，或体积过大不宜入库，请从 **Releases** 页面（tag `v1.0`）下载获取完整数据：
 
-| 文件 | 大小 |
-|---|---|
-| `data/seurat.annotated.rds` | 3006 MB |
-| `data/mircode_highconsfamilies.txt` | 121 MB |
-| `data/keygene_fullcell_lognormalized.rds` | 105 MB |
-| `data/pDC_fullgene_counts.rds` | 97.5 MB |
-| `data/fullgene_patient_log2cpm.rds` | 47.9 MB |
-| `data/pDC_fullcell_no_sampling.rds` | 19.0 MB |
+| 文件 | 大小 | Release 附件名 |
+|---|---|---|
+| 全部文件打包 | 1281 MB | `data_code.zip` |
+| `data/seurat.annotated.rds` | 3006 MB | `seurat.annotated.rds.part-00` + `part-01` |
+| `data/mircode_highconsfamilies.txt` | 121 MB | `mircode_highconsfamilies.txt` |
+| `data/keygene_fullcell_lognormalized.rds` | 105 MB | `keygene_fullcell_lognormalized.rds` |
+| `data/pDC_fullgene_counts.rds` | 97.5 MB | `pDC_fullgene_counts.rds` |
+| `data/fullgene_patient_log2cpm.rds` | 47.9 MB | `fullgene_patient_log2cpm.rds` |
+| `data/pDC_fullcell_no_sampling.rds` | 19.0 MB | `pDC_fullcell_no_sampling.rds` |
+
+`seurat.annotated.rds` 约 3 GB，超过 Release 单文件 2 GB 上限，已拆分为两段。下载后在同目录执行：
+
+```bash
+cat seurat.annotated.rds.part-00 seurat.annotated.rds.part-01 > seurat.annotated.rds
+```
+
+校验（拼接后 sha256 应为 `9c0497ae825ba428c571356709fc6018ff8adb61c1355874dbc2000a4d1cba9a`）：
+
+```bash
+sha256sum seurat.annotated.rds
+```
+
+若只需完整数据、不关心分文件，直接下载 `data_code.zip` 即可，其中已包含全部文件。
 
 ## 运行环境
 
